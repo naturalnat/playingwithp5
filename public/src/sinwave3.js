@@ -13,5 +13,11 @@ function draw() {
 
     translate(width / 2, height / 2)
 
-    rect (0, 0, 600, 600)
+    for (var i = 0; i < 200; i++) {
+        push()
+    
+        rect (0, 0, 600 - i * 3, 600 - i * 3, 200 - i) 
+
+        pop()
+  }
 }
