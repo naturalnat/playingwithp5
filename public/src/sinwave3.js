@@ -1,3 +1,4 @@
+//from tutorial 
 function setup() {
     createCanvas(windowWidth, windowHeight)
 
