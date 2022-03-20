@@ -18,9 +18,10 @@ function draw() {
         const radius = 0.25;
         const f = i / count;
         const a = f;
-        const x = 0.5 + cos(a * TWO_PI) * radius;
-        const y = 0.5 + sin(a * TWO_PI) * radius; 
+        const dist  = f * radius; 
+        const x = 0.5 + cos(a * TWO_PI) * dist;
+        const y = 0.5 + sin(a * TWO_PI) * dist; 
         const r = 0.01; 
-        circle(x,y,r);
+        circle(x, y, r);
     }
 }
