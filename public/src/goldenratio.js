@@ -1,3 +1,5 @@
+//yt creative coding golden ratio tutorial 
+
 function setup() { 
     const size = min(windowWidth, windowHeight)
     createCanvas(size, size); 
@@ -6,18 +8,18 @@ function setup() {
 }
 
 
-
 function draw() {
     scale(width, height);
     background(0);
     fill(1);
 
     //polar coordinates - relational in reference to location(pole)
+    const PHI = (1 + Math.sqrt(5)) / 2
     const count = 100;
     for (let i = 0; i < count; i++){
         const radius = 0.25;
         const f = i / count;
-        const a = f;
+        const a = i / PHI;
         const dist  = f * radius; 
         const x = 0.5 + cos(a * TWO_PI) * dist;
         const y = 0.5 + sin(a * TWO_PI) * dist; 
