@@ -14,7 +14,7 @@ function draw() {
     fill(1);
 
     //polar coordinates - relational in reference to location(pole)
-    const PHI = (1 + Math.sqrt(5)) / 2
+    const PHI = (1 + Math.sqrt(5)) / 2 //phi = "the golden ratio", most irrational number 
     const count = 100;
     for (let i = 0; i < count; i++){
         const radius = 0.25;
