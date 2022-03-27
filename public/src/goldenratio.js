@@ -40,7 +40,10 @@ function draw() {
         const x = 0.5 + cos(a * TWO_PI) * dist;
         const y = 0.5 + sin(a * TWO_PI) * dist; 
        
-        const r = f * dotSize; //changes dot size so smaller in middle  
+        const sig = cosine(f - t * 6); //change banding pattern  
+        const r = sig * f * dotSize; //changes dot size so smaller in middle  -- banding effect 
         circle(x, y, r);
     }
 }
+
+//grow in size and move out from center 
