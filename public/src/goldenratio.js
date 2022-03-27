@@ -7,6 +7,9 @@ function setup() {
     noStroke();
 }
 
+const radius = Math.sqrt(0.5);
+const PHI = (1 + Math.sqrt(5)) / 2 //phi = "the golden ratio", most irrational number 
+const dotSize = 0.05;
 
 function draw() {
     scale(width, height);
@@ -14,16 +17,16 @@ function draw() {
     fill(1);
 
     //polar coordinates - relational in reference to location(pole)
-    const PHI = (1 + Math.sqrt(5)) / 2 //phi = "the golden ratio", most irrational number 
-    const count = 100;
+   
+    const count = 1000;
     for (let i = 0; i < count; i++){
-        const radius = 0.25;
         const f = i / count;
-        const a = i / PHI;
+        const a = i * PHI;
         const dist  = f * radius; 
         const x = 0.5 + cos(a * TWO_PI) * dist;
         const y = 0.5 + sin(a * TWO_PI) * dist; 
-        const r = 0.01; 
+       
+        const r = f * dotSize; //changes dot size so smaller in middle  
         circle(x, y, r);
     }
 }
