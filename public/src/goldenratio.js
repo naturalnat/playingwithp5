@@ -7,6 +7,16 @@ function setup() {
     noStroke();
 }
 
+function cosine(y){
+    return cos (y * TWO_PI) * 0.5 + 0.5
+}
+
+function invCosine(y) {
+  return 1 - cosine(y)
+}
+
+//functions used below in zoom out effect -- zooms in & out 
+
 const radius = Math.sqrt(0.5);
 const PHI = (1 + Math.sqrt(5)) / 2 //phi = "the golden ratio", most irrational number 
 const dotSize = 0.05;
@@ -23,8 +33,8 @@ function draw() {
 
     //polar coordinates - relational in reference to location(pole)
    
-    const count = 1000 * t; //zoom out effect 
-    for (let i = 0; i < count; i++){
+    const count = 1000 * invCosine(t); //zoom out effect
+    for (let i = 0; i < count; i++){ //doing count * t will give growing effect from center out 
         const f = i / count;
         const a = i * PHI; 
         const dist  = f * radius; 
