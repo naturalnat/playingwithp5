@@ -15,25 +15,23 @@ function invCosine(y) {
   return 1 - cosine(y)
 }
 
-//functions used below in zoom out effect -- zooms in & out 
-
-const radius = Math.sqrt(0.5);
-const PHI = (1 + Math.sqrt(5)) / 2 //phi = "the golden ratio", most irrational number 
 const dotSize = 0.05;
+const radius = Math.sqrt(0.5) + dotSize; //+dotSize changes beginning dot zoom in 
+const PHI = (1 + Math.sqrt(5)) / 2 //phi = "the golden ratio", most irrational number 
 
 let t;
 const frames = 1000; 
 
 function draw() {
     t = fract(frameCount / frames); //stays btwn 0-1 when looping and loops forever
-   
+    //t = mouseX / width will allow using mouse to control zoom in 
     scale(width, height);
     background(0);
     fill(1);
 
     //polar coordinates - relational in reference to location(pole)
    
-    const count = 1000 * invCosine(t); //zoom out effect
+    const count = 1000 * invCosine(t); //zoom out effect 
     for (let i = 0; i < count; i++){ //doing count * t will give growing effect from center out 
         const f = i / count;
         const a = i * PHI; 
