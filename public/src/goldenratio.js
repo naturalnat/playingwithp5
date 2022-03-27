@@ -3,10 +3,11 @@
 function setup() { 
     const size = min(windowWidth, windowHeight)
     createCanvas(size, size); 
-    colorMode(RGB, 1);
+    colorMode(HSL, 1); //change RGB > HSL to add color in fill 
     noStroke();
 }
 
+//signal functions 
 function cosine(y){
     return cos (y * TWO_PI) * 0.5 + 0.5
 }
@@ -14,6 +15,8 @@ function cosine(y){
 function invCosine(y) {
   return 1 - cosine(y)
 }
+//used below in zoom in and out 
+
 
 const dotSize = 0.05;
 const radius = Math.sqrt(0.5) + dotSize; //+dotSize changes beginning dot zoom in 
@@ -39,11 +42,17 @@ function draw() {
 
         const x = 0.5 + cos(a * TWO_PI) * dist;
         const y = 0.5 + sin(a * TWO_PI) * dist; 
-       
+        
+        //grow in size and move out from center 
         const sig = cosine(f - t * 6); //change banding pattern  
         const r = sig * f * dotSize; //changes dot size so smaller in middle  -- banding effect 
         circle(x, y, r);
+
+        const hue = f; //color range
+        const sat = 1; //amnt of color 
+        const light = 0.5; //w -> b 
+        const clr = (color(hue, sat, light))
+        fill(clr)
     }
 }
 
-//grow in size and move out from center 
