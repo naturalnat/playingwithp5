@@ -48,7 +48,7 @@ function draw() {
         const r = sig * f * dotSize; //changes dot size so smaller in middle  -- banding effect 
         circle(x, y, r);
 
-        const hue = f; //color range
+        const hue = f; //color range- rainbow
         const sat = 1; //amnt of color 
         const light = 0.5; //w -> b 
         const clr = (color(hue, sat, light))
