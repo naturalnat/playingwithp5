@@ -12,9 +12,9 @@ function setup() {
 }
 
 function draw(){
-    background(0);
+    background(174,107,93);
     stroke(225);
-    noFill();
+   noFill();
 
     const wave = fft.waveform()
     //store waveform data 
