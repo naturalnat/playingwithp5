@@ -2,35 +2,42 @@ let song
 let fft 
 
 function preload() {
-    song = loadSound('/src/Ochi_Chernye.mp3')
+    song = loadSound('/src/UVV.mp3')
 }
 
 function setup() { 
     createCanvas(windowWidth, windowHeight); 
+    angleMode(DEGREES)
     fft = new p5.FFT() //FFT is Fast Fourier Transform - ever frame will analyze sound and return array 
 
 }
 
 function draw(){
-    background(174,107,93);
+    background(0);
     stroke(225);
-   noFill();
+    noFill();
+    // drawWave();
+
+    translate(width / 2, height / 2)
 
     const wave = fft.waveform()
     //store waveform data 
     //waveform method returns array w elements
 
     beginShape() //connect points with line
-    for (let i = 0; i < width; i++){ //loop thru waveform data to create wave across canvas 
-        let index = floor(map(i, 0, width, 0, wave.length)) //value of index must be int so has to be floored; need to map to create wave
+    for (let i = 0; i <= 180; i++){ //loop thru waveform data to create wave across canvas 
+        const index = floor(map(i, 0, 180, 0, wave.length - 1)) //value of index must be int so has to be floored; need to map to create wave
     
-        const x = i //for loop variable 
-        const y = wave[index] * 300 + height / 2 // waveform value at current index; waveform val is btwn -1 and 1 so make bigger 
-        //offset height to middle of canvas 
+        var r = map(wave[index], -1, 1, 100, 200)
+   
+        const x = r * sin(i)
+        const y = r * cons(i)
+        
         vertex(x, y)
     }
     endShape() 
 }
+
 
 function mouseClicked() {
     if (song.isPlaying()) {
