@@ -38,7 +38,7 @@ function draw() {
     for (let t = -1; t <=1; t+= 2) {
 
     beginShape() //connect points with line
-    for (let i = 0; i <= 180; i++) { //loop thru waveform data to create wave across canvas 
+    for (let i = 0; i <= 180; i += 0.5) { //loop thru waveform data to create wave across canvas 
         const index = floor(map(i, 0, 180, 0, wave.length - 1)) //value of index must be int so has to be floored; need to map to create wave
 
         const r = map(wave[index], -1, 1, 150, 200)
@@ -50,8 +50,20 @@ function draw() {
     }
     endShape()
 }
+
 }
 
+
+class Particle{
+    constructor(){
+        this.pos = p5.Vector.random2D().mult(200)
+    }
+    show(){
+        noStroke()
+        fill(255)
+        ellipse(this.pos.x, this.pos.y, 4)
+    }
+}
 //     beginShape() //connect points with line
 //     for (let i = 0; i <= 180; i++) { //loop thru waveform data to create wave across canvas 
 //         const index = floor(map(i, 0, 180, 0, wave.length - 1)) //value of index must be int so has to be floored; need to map to create wave
