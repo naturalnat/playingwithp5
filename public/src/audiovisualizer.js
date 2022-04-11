@@ -1,5 +1,6 @@
 let song
 let fft
+let particles
 
 function preload() {
     song = loadSound('/src/UVV.mp3')
@@ -50,6 +51,9 @@ function draw() {
     }
     endShape()
 }
+    const p = new Particle()
+    particles.push(p)
+
 
 }
 
